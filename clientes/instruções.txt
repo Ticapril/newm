@@ -2,5 +2,5 @@
 
 0) Todos os campos são obrigatórios, exceto observação. (Validar no JavaScript, antes de enviar os dados para o servidor)[X] REALIZADA NO PRÓPRIO HTML5
 1) Nome: Não permitir caracteres especiais (somente letras com ou sem acento). [X] Realizada com o JavaScript
-2) CPF: Detectar cpf inválido (pode pegar uma função pronta da internet).[x]
+2) CPF: Detectar cpf inválido (pode pegar uma função pronta da internet).[x] Realizada com função pronta pega na DevMedia
 3) Observação: Máximo de 300 caracteres.[x] Realizada no HTML5
