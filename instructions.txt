@@ -1,0 +1,33 @@
+cliente
+Nome,
+data de Nascimento,
+CPF,
+Celular,
+E-mail, 
+Endereço
+Observação (textarea);
+
+CREATE TABLE `newm`.`clientes` (`id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(255) NOT NULL , `data_nascimento` DATE NOT NULL , `cpf` VARCHAR(255) NOT NULL , `celular` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `endereco` VARCHAR NOT NULL , `observacao` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+vamos modelar com endereço
+como campo de cliente
+e depois vamos criar uma
+tabela especifica com endereço
+
+criação de composer.json configurando o autoload de classe
+executa esse comando composer install
+
+
+
+qualquer submit tem que utilizar ajax para fazer a transição dos dados do back-end para o frontend
+
+
+função cadastrar e listar já está pronta
+limitação de registros pronto
+
+
+falta criar as validações no front-end
+validar
+função deletar e editar
+
