@@ -1,0 +1,15 @@
+.btn-close-modal {
+    flex-direction: column-reverse;
+}
+#nameError {
+  display: none;
+  font-size: 0.8em;
+}
+
+#nameError.visible {
+  display: block;
+}
+
+input.invalid {
+  border-color: red;
+}

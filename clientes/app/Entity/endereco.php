@@ -4,7 +4,6 @@ namespace App\Entity;
 use App\Db\Database;
 
 class Endereco {
-    //Atributos
     private $id;
     private $cidade;
     private $bairro;
@@ -13,32 +12,23 @@ class Endereco {
     private $complemento;
     private $fk_end_cliente;
 
-
     public function cadastrar()
     {
-        //inserir o Endereco no banco
         $database = new Database('endereco');
-        // descomentar para testar a lógica da função
-        // echo '<pre>';
-        // print_r($database);
-        // echo '</pre>';
-        $this->setId($database->insert([
-           'cidade' => $this->cidade, 
-           'bairro' => $this->bairro, 
-           'rua' => $this->rua, 
-           'numero' => $this->numero, 
-           'complemento' => $this->complemento,
-           'fk_end_cliente' => $this->fk_end_cliente,
-        ]));
-        // descomentar para testar a lógica da função
-        // echo '<pre>';
-        // print_r($this);
-        // echo '</pre>';
+        $this->setId($database->insert(
+            [
+            'cidade' => $this->cidade, 
+            'bairro' => $this->bairro, 
+            'rua' => $this->rua, 
+            'numero' => $this->numero, 
+            'complemento' => $this->complemento,
+            'fk_end_cliente' => $this->fk_end_cliente,
+            ]
+        ));
         return true;
     }
     public function excluir()
     {
-        //Excluo o cliente
         $dbEndereco =  new Database('endereco');
         $dbEndereco->delete('id = '.$this->getId());
     }

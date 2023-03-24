@@ -16,9 +16,10 @@ class Database
         $this->table = $table;
         $this->setConnection();
     }
-    //funções especificas do PDO
+    //funcoes especificas do PDO
     private function setConnection(){
-        try {             
+        try 
+        {             
             $this->connection = new PDO('mysql: host='.self::HOST.';dbname='.self::NAME, self::USER,self::PASSWORD);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
@@ -26,24 +27,22 @@ class Database
         }
     }
     public function execute($query, $params = []){ // recebe a query a ser preparada e os parametros
-        try {
-            // echo '<pre>';
-            // print_r($query);
-            // print_r($params);
-            // echo '</pre>'; exit;
+        try 
+        {
             $statement = $this->connection->prepare($query);
             $statement->execute($params);
             return $statement;
-        } catch (\PDOException $e) {
+        } catch (\PDOException $e) 
+        {
             die('ERROR: '.$e->getMessage());
         }
     }
-    //Abstração de um CRUD com PDO
+    //Abstracao de um CRUD com PDO
     public function insert($values){
         //Dados da query
         $fields = array_keys($values);
-        $binds = array_pad([], count($values), '?'); // ele pega um array com x posições se o array passado não tiver essas posições ele cria pra mim 
-        // comentario para testar a l�gica
+        $binds = array_pad([], count($values), '?'); // ele pega um array com x posiÃ§Ãµes se o array passado nÃ£o tiver essas posiÃ§Ãµes ele cria pra mim 
+        // comentario para testar a lï¿½gica
         // echo '<pre>';
         // print_r( implode(',',$binds));
         // echo '</pre>';
@@ -68,16 +67,8 @@ class Database
     }
     public function update($where, $values){
         $fields = array_keys($values);
-        // echo '<pre>';
-        // print_r($fields);
-        // echo '</pre>';exit;
         $query = 'UPDATE '.$this->table.' SET '.implode('=?,', $fields).'=? WHERE '.$where;
-        // echo '<pre>';
-        // print_r($query);
-        // echo '</pre>';exit;
-        //Executar a query
         $this->execute($query, array_values($values));
-        //Retorna sucesso
         return true;
     }
     public function delete($where) {
